@@ -1,0 +1,21 @@
+# PyCharm
+.idea
+
+# Vagrant directory
+.vagrant
+
+# SQLLite files
+*.sqlite3
+
+# OSX stuff
+.DS_Store
+._*
+.Trashes
+
+# Windows stuff
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Django stuff
+*.log
