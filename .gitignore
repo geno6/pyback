@@ -1,6 +1,9 @@
 # PyCharm
 .idea
 
+# Python
+__pycache__/
+
 # Vagrant directory
 .vagrant
 
