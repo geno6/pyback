@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +43,7 @@ INSTALLED_APPS = (
     'south',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_swagger',
 
     'accounts',
     'blog',
@@ -99,3 +99,5 @@ REST_FRAMEWORK = {
 
 # Static uploads (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-uploads/
+
+STATIC_URL = '/static/'

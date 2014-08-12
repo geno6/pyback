@@ -1,6 +1,6 @@
 django==1.6.5
-django-suit==0.2.9
 djangorestframework==2.3.14
+django-rest-swagger==0.1.14
 markdown==2.4.1
 django-filter==0.7
 south==1.0

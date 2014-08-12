@@ -11,6 +11,9 @@ urlpatterns = patterns(
                         # Accounts / API
                         url(r'^api/accounts/', accounts_api.Accounts.as_view()),
 
+                        # Swagger
+                        url(r'^docs/', include('rest_framework_swagger.urls')),
+
                         # Admin urls
                         url(r'^admin/', include(admin.site.urls)),
 )
