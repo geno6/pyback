@@ -11,7 +11,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Remote Python 3.4.0 (vagrant:///Users/ararat/Python/usr/bin/python3.4)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 2.7.6 virtualenv at ~/Python/PyBack/venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
