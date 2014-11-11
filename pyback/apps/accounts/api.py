@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 
-from .pyback.apps.accounts.serializers import UserSerializer
+from pyback.apps.accounts.serializers import UserSerializer
 
 
 class UserMixin(object):
