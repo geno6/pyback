@@ -1,6 +1,6 @@
 #!/bin/sh
 source venv/bin/activate
-export DJANGO_SETTINGS_MODULE=pyback.settings.production
+export DJANGO_SETTINGS_MODULE=pyback.settings
 git pull
 pip install -r requirements.txt
 

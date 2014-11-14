@@ -10,6 +10,10 @@ __pycache__/
 # SQLLite files
 *.sqlite3
 
+# Uploaded files
+files/uploads/user/image/.gitkeep
+
+
 # OSX stuff
 .DS_Store
 ._*

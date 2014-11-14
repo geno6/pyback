@@ -26,7 +26,6 @@ class UserList(UserMixin, ListCreateAPIView):
     def pre_save(self, obj):
         return 0
 
-
     def post_save(self, user, created=False):
         """
         Save user token
