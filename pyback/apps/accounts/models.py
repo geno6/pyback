@@ -11,14 +11,13 @@ class UserProfile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table="auth_user_profile"
+        db_table = "auth_user_profile"
 
 
 class UserImage(models.Model):
     user = models.OneToOneField(User, unique=True, related_name='user_image')
-    file = models.ImageField(upload_to="files/uploads/user_images")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        db_table="auth_user_image"
+        db_table = "auth_user_image"

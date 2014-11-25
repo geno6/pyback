@@ -11,8 +11,12 @@ __pycache__/
 *.sqlite3
 
 # Uploaded files
-files/uploads/user/image/.gitkeep
+files/uploads/user/image/*
+!/files/uploads/user/image/.gitkeep
 
+# Static files
+static/*
+!/static/.gitkeep
 
 # OSX stuff
 .DS_Store
