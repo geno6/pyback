@@ -1,0 +1,24 @@
+# Editors
+project.xml
+project.properties
+/nbproject/private/
+.buildpath
+.project
+.settings*
+sftp-config.json
+.idea
+
+# OS X metadata
+.DS_Store
+
+# Windows junk
+Thumbs.db
+
+# Modules
+pkg/
+Gemfile.lock
+vendor/
+spec/fixtures/
+.bundle/
+.vagrant/
+coverage/
