@@ -28,8 +28,5 @@ Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
-# Virtual Environment
-venv/
-
 # Django stuff
 *.log

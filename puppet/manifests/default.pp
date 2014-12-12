@@ -49,30 +49,11 @@ file { "/var/www/":
 # MySQL
 #-----------------------------------------------------------------------------------------------------------------------
 
-class mysql {
-
-    # root mysql password
-    $mysqlpw = "root"
-
-    # install mysql server
-    package { "mysql-server":
-        ensure => present,
-        require => Exec["apt-get update"]
-    }
-
-    #start mysql service
-    service { "mysql":
-        ensure => running,
-        require => Package["mysql-server"],
-    }
-
-    # set mysql password
-    exec { "set-mysql-password":
-        unless => "mysqladmin -uroot -p$mysqlpw status",
-        command => "mysqladmin -uroot password $mysqlpw",
-        require => Service["mysql"],
-    }
+class { 'mysql::server':
+    root_password => "root"
 }
+
+include mysql::server
 
 #-----------------------------------------------------------------------------------------------------------------------
 # NGINX
@@ -94,5 +75,5 @@ class nginx {
 #-----------------------------------------------------------------------------------------------------------------------
 # Includes
 #-----------------------------------------------------------------------------------------------------------------------
-include mysql::server::secure
+
 include nginx

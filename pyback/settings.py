@@ -24,7 +24,8 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_swagger',
-    'pyback.apps.accounts'
+    'pyback.apps.accounts',
+    'pyback.apps.community'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -40,7 +41,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'pyback.urls'
 
 WSGI_APPLICATION = 'pyback.wsgi.application'
-
 
 # AUTH
 
@@ -62,15 +62,22 @@ REST_FRAMEWORK = {
 
 # Database
 
+# DATABASES = {
+#     'default': {
+#         'NAME': 'pyback',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'OPTIONS': {
+#             'autocommit': True,
+#         }
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'NAME': 'pyback',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': '',
-        'OPTIONS': {
-            'autocommit': True,
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
