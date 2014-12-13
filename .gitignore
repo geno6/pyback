@@ -30,3 +30,7 @@ $RECYCLE.BIN/
 
 # Django stuff
 *.log
+
+# Puppet
+puppet/modules/*
+!puppet/modules/.gitkeep

@@ -51,4 +51,7 @@ gem install --no-ri --no-rdoc rubygems-update
 update_rubygems >/dev/null
 
 # Replace configuration file
-sudo cp -f ../puppet/files/puppet/puppet.conf /etc/puppet/puppet.conf
+sudo cp -f puppet/files/puppet/puppet.conf /etc/puppet/puppet.conf
+
+# Restart puppet service
+sudo service puppet restart
