@@ -38,17 +38,7 @@ apt-get update >/dev/null
 # Install Puppet
 echo "Installing Puppet..."
 DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install puppet >/dev/null
-
 echo "Puppet installed!"
-
-# Install RubyGems for the provider
-echo "Installing RubyGems..."
-if [ $DISTRIB_CODENAME != "trusty" ]; then
-  apt-get install -y rubygems >/dev/null
-fi
-
-gem install --no-ri --no-rdoc rubygems-update
-update_rubygems >/dev/null
 
 # Replace configuration file
 sudo cp -f puppet/files/puppet/puppet.conf /etc/puppet/puppet.conf
