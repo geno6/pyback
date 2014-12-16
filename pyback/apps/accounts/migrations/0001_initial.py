@@ -13,14 +13,27 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='UserImage',
+            fields=[
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
+                ('created_at', models.DateTimeField(auto_now_add=True)),
+                ('updated_at', models.DateTimeField(auto_now=True)),
+                ('user', models.OneToOneField(related_name='user_image', to=settings.AUTH_USER_MODEL)),
+            ],
+            options={
+                'db_table': 'auth_user_image',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='UserProfile',
             fields=[
-                ('id', models.AutoField(primary_key=True, verbose_name='ID', auto_created=True, serialize=False)),
-                ('user', models.OneToOneField(related_name='user_profile', to=settings.AUTH_USER_MODEL)),
+                ('id', models.AutoField(serialize=False, verbose_name='ID', primary_key=True, auto_created=True)),
                 ('address', models.CharField(verbose_name='Address', max_length=255)),
                 ('phone', models.CharField(verbose_name='Phone number', max_length=128)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
+                ('user', models.OneToOneField(related_name='user_profile', to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'db_table': 'auth_user_profile',

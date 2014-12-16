@@ -62,24 +62,24 @@ REST_FRAMEWORK = {
 
 # Database
 
-# DATABASES = {
-#     'default': {
-#         'NAME': 'pyback',
-#         'ENGINE': 'django.db.backends.mysql',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'OPTIONS': {
-#             'autocommit': True,
-#         }
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'pyback',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'pyback',
+        'PASSWORD': 'pass4pyback',
+        'OPTIONS': {
+            'autocommit': True,
+        }
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 # Django REST swagger
 
