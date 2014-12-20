@@ -1,22 +1,14 @@
 # PyCharm
-.idea/
+.idea
 
 # Python
 __pycache__/
 
 # Vagrant directory
-.vagrant/*
+.vagrant
 
 # SQLLite files
 *.sqlite3
-
-# Uploaded files
-files/uploads/user/image/*
-!/files/uploads/user/image/.gitkeep
-
-# Static files
-static/*
-!/static/.gitkeep
 
 # OSX stuff
 .DS_Store
@@ -31,8 +23,4 @@ $RECYCLE.BIN/
 # Django stuff
 *.log
 
-# Puppet
-puppet/modules/*
-!puppet/modules/.gitkeep
-
-venv/
+venv
