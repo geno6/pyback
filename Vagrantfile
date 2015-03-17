@@ -10,8 +10,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Network
   config.vm.network "private_network", ip: "192.168.10.10"
-  config.vm.network :forwarded_port, host: 8000, guest: 80
+  config.vm.network :forwarded_port, guest: 80, host: 8080, auto_correct: true
 
   # Shared
-  config.vm.synced_folder ".", "/var/www", type: 'nfs'
+  config.vm.synced_folder ".", "/var/www"
+
+  # Configure virtual host name
+  config.vm.hostname = "pyback"
 end

@@ -1,8 +1,4 @@
-django==1.7.1
-djangorestframework==2.4.4
-django-rest-swagger==0.2.0
-markdown==2.4.1
-django-filter==0.7
-django-grappelli==2.6.2
-pymysql==0.6.2
+Django==1.7.6
+psycopg2==2.6
+redis==2.10.3
 gunicorn==19.1.1

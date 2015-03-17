@@ -1,14 +1,11 @@
 # PyCharm
-.idea
+.idea/
 
 # Python
 __pycache__/
 
 # Vagrant directory
 .vagrant
-
-# SQLLite files
-*.sqlite3
 
 # OSX stuff
 .DS_Store
@@ -20,7 +17,13 @@ Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
-# Django stuff
-*.log
+# Static files
+static/*
+!/static/.gitkeep
 
+# Static files
+media/*
+!/media/.gitkeep
+
+# Virtual environment
 venv
