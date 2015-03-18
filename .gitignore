@@ -25,5 +25,8 @@ static/*
 media/*
 !/media/.gitkeep
 
+# Settings file
+system/settings.py
+
 # Virtual environment
 venv

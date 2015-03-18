@@ -8,3 +8,4 @@ essential-packages:
       - bash
       - git
       - tmux
+      - gettext
