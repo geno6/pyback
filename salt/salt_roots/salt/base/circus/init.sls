@@ -19,6 +19,8 @@ circus_dir:
 circusd:
   service:
     - running
+    - user: root
+    - group: root
     - require:
       - file: circus_upstart
       - file: circus_dir
