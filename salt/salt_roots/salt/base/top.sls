@@ -7,8 +7,8 @@ local:
     - mongodb
     - nginx
     - circus
-    - website.settings
-    - website.django
+    - django
+    - django.settings
 
 dev:
   '*':
@@ -19,8 +19,8 @@ dev:
     - mongodb
     - nginx
     - circus
-    - website.settings
-    - website.django
+    - django
+    - django.settings
 
 prod:
   '*':
@@ -31,5 +31,5 @@ prod:
     - mongodb
     - nginx
     - circus
-    - website.settings
-    - website.django
+    - django
+    - django.settings

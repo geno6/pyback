@@ -6,11 +6,13 @@ circus_upstart:
   file.managed:
     - name: /etc/init/circusd.conf
     - source: salt://circus/circusd.conf
+    - template: jinja
 
 circus_conf:
   file.managed:
     - name: /etc/gunicorn.ini
     - source: salt://circus/gunicorn.ini
+    - template: jinja
 
 circus_dir:
   file.directory:

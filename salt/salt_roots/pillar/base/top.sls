@@ -1,11 +1,23 @@
 local:
   '*':
-    - config
+    - gunicorn
+    - postgresql
+    - venv
+    - nginx
+    - django
 
 dev:
   '*':
-    - config
+    - gunicorn
+    - postgresql
+    - venv
+    - nginx
+    - django
 
 prod:
   '*':
-    - config
+    - gunicorn
+    - postgresql
+    - venv
+    - nginx
+    - django

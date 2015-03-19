@@ -1,0 +1,2 @@
+source /var/www/venv/bin/activate && python /var/www/manage.py makemessages --all --pythonpath=apps/ --ignore=venv/* -l en -l ru
+source /var/www/venv/bin/activate && python /var/www/manage.py compilemessages --pythonpath=apps/ -l en -l ru

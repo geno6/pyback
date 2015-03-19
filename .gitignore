@@ -17,11 +17,16 @@ Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
+# Locale files
+locale/*
+!/locale/.gitkeep
+
+
 # Static files
 static/*
 !/static/.gitkeep
 
-# Static files
+# Media files
 media/*
 !/media/.gitkeep
 
