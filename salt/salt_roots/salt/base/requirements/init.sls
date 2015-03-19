@@ -9,3 +9,5 @@ essential-packages:
       - git
       - tmux
       - gettext
+      - libjpeg-dev
+      - zlib1g-dev
