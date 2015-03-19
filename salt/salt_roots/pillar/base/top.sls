@@ -5,6 +5,7 @@ local:
     - venv
     - nginx
     - django
+    - settings
 
 dev:
   '*':
@@ -12,6 +13,7 @@ dev:
     - postgresql
     - venv
     - nginx
+    - settings
     - django
 
 prod:
@@ -20,4 +22,5 @@ prod:
     - postgresql
     - venv
     - nginx
+    - settings
     - django

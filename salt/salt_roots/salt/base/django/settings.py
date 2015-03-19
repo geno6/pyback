@@ -19,12 +19,12 @@ ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'me#uvxx#hbmc$a13q_0!mg5p7w2zgk3qcy5))kw(w%-$xe-5jv'
+SECRET_KEY = {{ pillar["settings"]["secret_key"] }}
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = {{ pillar["settings"]["debug"] }}
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = {{ pillar["settings"]["template_debug"] }}
 
 ALLOWED_HOSTS = []
 
@@ -57,7 +57,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'system.urls'
 
 WSGI_APPLICATION = 'system.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
