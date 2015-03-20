@@ -26,3 +26,15 @@ circusd:
     - require:
       - file: circus_upstart
       - file: circus_dir
+
+celery:
+  file.managed:
+    - name: /etc/init.d/celeryd
+    - source: salt://circus/celery
+    - template: jinja
+
+celeryd:
+  file.managed:
+    - name: /etc/default/celeryd
+    - source: salt://circus/celeryd
+    - template: jinja
