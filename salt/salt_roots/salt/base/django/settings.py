@@ -19,7 +19,7 @@ ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "{{ pillar['settings']['secret_key'] }}"
+SECRET_KEY = '{{ pillar["settings"]["secret_key"] }}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = {{ pillar["settings"]["debug"] }}
@@ -76,6 +76,11 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.i18n',
 )
+
+# Celery
+
+BROKER_URL = 'redis/127.0.0.1:6397/0'
+BROKER_TRANSPORT = 'redis'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
