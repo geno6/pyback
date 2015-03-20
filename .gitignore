@@ -30,6 +30,10 @@ static/*
 media/*
 !/media/.gitkeep
 
+# Logs
+logs/*
+!/logs/.gitkeep
+
 # Settings file
 system/settings.py
 
