@@ -10,3 +10,8 @@ npm:
     - target: /usr/bin/nodejs
     - require:
       - pkg: npm
+
+bower:
+  npm.installed:
+    - require:
+      - pkg: npm

@@ -11,6 +11,7 @@ local:
     - circus
     - django
     - django.settings
+    - supervisord
 
 dev:
   '*':
@@ -25,6 +26,7 @@ dev:
     - circus
     - django
     - django.settings
+    - supervisord
 
 prod:
   '*':
@@ -39,3 +41,4 @@ prod:
     - circus
     - django
     - django.settings
+    - supervisord
