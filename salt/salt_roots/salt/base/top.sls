@@ -5,6 +5,7 @@ local:
     - postgresql
     - redis
     - mongodb
+    - nodejs
     - nginx
     - circus
     - django
@@ -17,6 +18,7 @@ dev:
     - postgresql
     - redis
     - mongodb
+    - nodejs
     - nginx
     - circus
     - django
@@ -29,6 +31,7 @@ prod:
     - postgresql
     - redis
     - mongodb
+    - nodejs
     - nginx
     - circus
     - django

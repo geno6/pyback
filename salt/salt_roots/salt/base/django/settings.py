@@ -70,13 +70,6 @@ DATABASES = {
     }
 }
 
-# Context processors
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.i18n',
-)
-
 # Celery
 
 BROKER_URL = 'redis/127.0.0.1:6397/0'
@@ -110,3 +103,14 @@ LOCALE_PATHS = (
 
 STATIC_ROOT = os.path.join(ROOT_PATH, "../static")
 STATIC_URL = '/static/'
+
+# Templates processors
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.i18n',
+)
+
+TEMPLATE_DIRS = (
+    os.path.join(ROOT_PATH, "../templates"),
+)
