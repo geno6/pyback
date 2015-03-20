@@ -10,8 +10,8 @@ circus_upstart:
 
 circus_conf:
   file.managed:
-    - name: /etc/gunicorn.ini
-    - source: salt://circus/gunicorn.ini
+    - name: /etc/circus.ini
+    - source: salt://circus/circus.ini
     - template: jinja
 
 circus_dir:

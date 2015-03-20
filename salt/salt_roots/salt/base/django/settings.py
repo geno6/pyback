@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djcelery',
     'rest_framework',
     'apps.home',
     'apps.api'
@@ -72,8 +73,13 @@ DATABASES = {
 
 # Celery
 
-BROKER_URL = 'redis/127.0.0.1:6397/0'
-BROKER_TRANSPORT = 'redis'
+BROKER_HOST = '127.0.0.1'
+BROKER_POST = 5672
+BROKER_USER = 'guest'
+BROKER_PASSWORD = 'guest'
+
+import djcelery
+djcelery.setup_loader()
 
 # Templates
 
@@ -139,12 +145,13 @@ LOGGING = {
         },
     },
     'loggers': {
-        'django': {
-            'handlers':['file'],
+        'apps.api': {
             'propagate': True,
-            'level':'DEBUG',
+            'handlers': ['file'],
+            'level': 'DEBUG',
         },
-        'MYAPP': {
+        'apps.home': {
+            'propagate': True,
             'handlers': ['file'],
             'level': 'DEBUG',
         },

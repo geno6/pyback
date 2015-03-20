@@ -6,6 +6,7 @@ local:
     - redis
     - mongodb
     - nodejs
+    - rabbitmq
     - nginx
     - circus
     - django
@@ -19,6 +20,7 @@ dev:
     - redis
     - mongodb
     - nodejs
+    - rabbitmq
     - nginx
     - circus
     - django
@@ -32,6 +34,7 @@ prod:
     - redis
     - mongodb
     - nodejs
+    - rabbitmq
     - nginx
     - circus
     - django
