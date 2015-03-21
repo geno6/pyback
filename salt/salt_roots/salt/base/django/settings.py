@@ -8,7 +8,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 from django.utils.translation import ugettext_lazy as _
 
@@ -38,10 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djcelery',
-    'rest_framework',
     'apps.home',
-    'apps.api'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -70,16 +66,6 @@ DATABASES = {
         'PASSWORD': "{{ pillar['postgresql']['password'] }}",
     }
 }
-
-# Celery
-
-BROKER_HOST = '127.0.0.1'
-BROKER_POST = 5672
-BROKER_USER = 'guest'
-BROKER_PASSWORD = 'guest'
-
-import djcelery
-djcelery.setup_loader()
 
 # Templates
 
@@ -140,7 +126,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': 'logs/django.log',
+            'filename': os.path.join(ROOT_PATH, "../logs/django.log"),
             'formatter': 'verbose'
         },
     },

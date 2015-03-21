@@ -5,13 +5,10 @@ local:
     - postgresql
     - redis
     - mongodb
-    - nodejs
-    - rabbitmq
     - nginx
     - circus
     - django
     - django.settings
-    - supervisord
 
 dev:
   '*':
@@ -20,13 +17,10 @@ dev:
     - postgresql
     - redis
     - mongodb
-    - nodejs
-    - rabbitmq
     - nginx
     - circus
     - django
     - django.settings
-    - supervisord
 
 prod:
   '*':
@@ -35,10 +29,7 @@ prod:
     - postgresql
     - redis
     - mongodb
-    - nodejs
-    - rabbitmq
     - nginx
     - circus
     - django
     - django.settings
-    - supervisord
