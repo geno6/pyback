@@ -11,3 +11,4 @@ essential-packages:
       - gettext
       - libjpeg-dev
       - zlib1g-dev
+      - python-pymongo

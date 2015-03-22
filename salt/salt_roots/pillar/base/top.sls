@@ -6,6 +6,7 @@ local:
     - nginx
     - django
     - settings
+    - mongodb
 
 dev:
   '*':
@@ -15,6 +16,7 @@ dev:
     - nginx
     - settings
     - django
+    - mongodb
 
 prod:
   '*':
@@ -24,3 +26,4 @@ prod:
     - nginx
     - settings
     - django
+    - mongodb

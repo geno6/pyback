@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 import os
+from mongoengine import connect
 from django.utils.translation import ugettext_lazy as _
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -66,6 +67,10 @@ DATABASES = {
         'PASSWORD': "{{ pillar['postgresql']['password'] }}",
     }
 }
+
+# MongoDB
+
+connect("asdasd")
 
 # Templates
 
