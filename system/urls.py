@@ -7,6 +7,7 @@ urlpatterns = patterns('',
 
                        # Home urls
                        url(r'^$', HomeView.as_view()),
-
+                       # Grappelli urls
+                       (r'^grappelli/', include('grappelli.urls')), # grappelli URLS
                        # Admin urls
                        url(r'^admin/', include(admin.site.urls)),)
