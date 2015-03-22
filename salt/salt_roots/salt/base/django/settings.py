@@ -70,7 +70,7 @@ DATABASES = {
 
 # MongoDB
 
-connect("asdasd")
+connect('{{ pillar["mongodb"]["database"] }}', username='{{ pillar["mongodb"]["user"] }}', password='{{ pillar["mongodb"]["password"] }}')
 
 # Templates
 
