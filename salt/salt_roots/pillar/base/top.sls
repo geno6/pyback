@@ -6,6 +6,7 @@ local:
     - nginx
     - django
     - settings
+    - superuser
     - mongodb
 
 dev:
@@ -14,8 +15,9 @@ dev:
     - postgresql
     - venv
     - nginx
-    - settings
     - django
+    - settings
+    - superuser
     - mongodb
 
 prod:
@@ -24,6 +26,7 @@ prod:
     - postgresql
     - venv
     - nginx
-    - settings
     - django
+    - settings
+    - superuser
     - mongodb
