@@ -12,6 +12,7 @@ local:
 
 dev:
   '*':
+    - git
     - gunicorn
     - postgresql
     - venv
@@ -24,6 +25,7 @@ dev:
 
 prod:
   '*':
+    - git
     - gunicorn
     - postgresql
     - venv

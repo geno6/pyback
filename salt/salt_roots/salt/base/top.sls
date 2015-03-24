@@ -15,6 +15,7 @@ local:
 
 dev:
   '*':
+    - git
     - requirements
     - python
     - postgresql
@@ -30,6 +31,7 @@ dev:
 
 prod:
   '*':
+    - git
     - requirements
     - python
     - postgresql
