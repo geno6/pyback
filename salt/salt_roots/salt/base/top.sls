@@ -7,11 +7,11 @@ local:
     - redis
     - mongodb
     - nginx
-    - circus
     - cron
     - django
     - django.settings
     - django.superuser
+    - circus
 
 dev:
   '*':
@@ -23,11 +23,11 @@ dev:
     - redis
     - mongodb
     - nginx
-    - circus
     - cron
     - django
     - django.settings
     - django.superuser
+    - circus
 
 prod:
   '*':
@@ -39,8 +39,8 @@ prod:
     - redis
     - mongodb
     - nginx
-    - circus
     - cron
     - django
     - django.settings
     - django.superuser
+    - circus

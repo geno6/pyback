@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'huey.djhuey',
     'debug_toolbar',
     'apps.core',
     'apps.home',
@@ -163,3 +164,13 @@ DEBUG_TOOLBAR_PANELS = [
 ]
 
 INTERNAL_IPS = ['127.0.0.1']
+
+# Huey
+
+HUEY = {
+    'backend': 'huey.backends.redis_backend',  # required.
+    'name': 'huey',
+    'connection': {'host': 'localhost', 'port': 6379},
+    'always_eager': False,
+    'consumer_options': {'workers': 4},
+}
