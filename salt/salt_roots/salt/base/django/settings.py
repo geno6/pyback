@@ -139,7 +139,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        'apps.api': {
+        'apps.core': {
             'propagate': True,
             'handlers': ['file'],
             'level': 'DEBUG',

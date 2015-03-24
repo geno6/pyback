@@ -8,6 +8,7 @@ local:
     - settings
     - superuser
     - mongodb
+    - cron
 
 dev:
   '*':
@@ -19,6 +20,7 @@ dev:
     - settings
     - superuser
     - mongodb
+    - cron
 
 prod:
   '*':
@@ -30,3 +32,4 @@ prod:
     - settings
     - superuser
     - mongodb
+    - cron

@@ -8,6 +8,7 @@ local:
     - mongodb
     - nginx
     - circus
+    - cron
     - django
     - django.settings
     - django.superuser
@@ -22,6 +23,7 @@ dev:
     - mongodb
     - nginx
     - circus
+    - cron
     - django
     - django.settings
     - django.superuser
@@ -36,6 +38,7 @@ prod:
     - mongodb
     - nginx
     - circus
+    - cron
     - django
     - django.settings
     - django.superuser
