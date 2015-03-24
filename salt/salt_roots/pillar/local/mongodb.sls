@@ -1,4 +1,4 @@
 mongodb:
-  user: mongouser
+  user: root
   password: password
   database: system
