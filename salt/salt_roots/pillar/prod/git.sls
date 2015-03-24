@@ -1,5 +1,5 @@
 git:
   repo_url: https://github.com/geno6/pyback.git
-  branch: dev
+  branch: master
   username:
   password: 
