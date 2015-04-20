@@ -26,7 +26,7 @@ DEBUG = {{ pillar["settings"]["debug"] }}
 
 TEMPLATE_DEBUG = {{ pillar["settings"]["template_debug"] }}
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [{{ pillar["settings"]["allowed_hosts"] }}]
 
 
 # Application definition
