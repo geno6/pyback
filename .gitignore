@@ -21,6 +21,9 @@ $RECYCLE.BIN/
 locale/*
 !/locale/.gitkeep
 
+# Common files
+files/*
+!/files/.gitkeep
 
 # Static files
 static/*
