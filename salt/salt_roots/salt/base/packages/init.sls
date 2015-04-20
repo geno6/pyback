@@ -12,3 +12,5 @@ essential-packages:
       - libjpeg-dev
       - zlib1g-dev
       - python-pymongo
+      - gdal-bin
+      - libgeos-dev

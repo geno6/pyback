@@ -3,5 +3,3 @@ django:
   static_dir: /var/www/static/
   media_dir: /var/www/media/
   src_dir: /var/www
-
-

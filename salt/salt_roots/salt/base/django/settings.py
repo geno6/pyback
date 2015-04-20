@@ -155,20 +155,10 @@ LOGGING = {
     }
 }
 
-# Debug toolbar
-
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
-
-DEBUG_TOOLBAR_PANELS = [
-    'debug_toolbar.panels.versions.VersionsPanel',
-]
-
-INTERNAL_IPS = ['127.0.0.1']
-
 # Huey
 
 HUEY = {
-    'backend': 'huey.backends.redis_backend',  # required.
+    'backend': 'huey.backends.redis_backend',
     'name': 'huey',
     'connection': {'host': 'localhost', 'port': 6379},
     'always_eager': False,

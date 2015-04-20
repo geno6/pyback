@@ -1,6 +1,6 @@
 local:
   '*':
-    - requirements
+    - packages
     - python
     - postgresql
     - postgresql.postgis
@@ -8,15 +8,15 @@ local:
     - mongodb
     - nginx
     - cron
-    - django
     - django.settings
+    - django
     - django.superuser
     - circus
 
 dev:
   '*':
     - git
-    - requirements
+    - packages
     - python
     - postgresql
     - postgresql.postgis
@@ -24,15 +24,15 @@ dev:
     - mongodb
     - nginx
     - cron
-    - django
     - django.settings
+    - django
     - django.superuser
     - circus
 
 prod:
   '*':
     - git
-    - requirements
+    - packages
     - python
     - postgresql
     - postgresql.postgis
@@ -40,7 +40,7 @@ prod:
     - mongodb
     - nginx
     - cron
-    - django
     - django.settings
+    - django
     - django.superuser
     - circus
