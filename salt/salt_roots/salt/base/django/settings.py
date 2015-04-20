@@ -137,7 +137,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(ROOT_PATH, "../logs/django.log"),
+            'filename': os.path.join(ROOT_PATH, "../logs/debug.log"),
             'formatter': 'verbose'
         },
     },
