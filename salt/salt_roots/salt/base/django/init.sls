@@ -23,7 +23,7 @@ install:
 
 migrate:
   cmd.run:
-    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && ./manage.py migrate --noinput'
+    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && /var/www/./manage.py migrate --noinput'
     - cwd: {{ pillar['django']['src_dir'] }}
     - shell: /bin/bash
     - require:
@@ -31,7 +31,7 @@ migrate:
 
 collectstatic:
   cmd.run:
-    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && ./manage.py collectstatic --noinput'
+    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && /var/www/./manage.py collectstatic --noinput'
     - cwd: {{ pillar['django']['src_dir'] }}
     - shell: /bin/bash
     - require:
@@ -39,7 +39,7 @@ collectstatic:
 
 createsuperuser:
   cmd.run:
-    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && ./manage.py superuser'
+    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && /var/www/./manage.py superuser'
     - cwd: {{ pillar['django']['src_dir'] }}
     - shell: /bin/bash
     - require:
