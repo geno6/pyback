@@ -70,12 +70,14 @@ DATABASES = {
         'NAME': "{{ pillar['postgresql']['database'] }}",
         'USER': "{{ pillar['postgresql']['user'] }}",
         'PASSWORD': "{{ pillar['postgresql']['password'] }}",
+        'HOST': "localhost",
+        'POST': "5432"
     }
 }
 
 # MongoDB
 
-connect('{{ pillar["mongodb"]["database"] }}', username='{{ pillar["mongodb"]["user"] }}', password='{{ pillar["mongodb"]["password"] }}')
+# connect('{{ pillar["mongodb"]["database"] }}', username='{{ pillar["mongodb"]["user"] }}', password='{{ pillar["mongodb"]["password"] }}')
 
 # Templates
 

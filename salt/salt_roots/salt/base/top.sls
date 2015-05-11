@@ -1,5 +1,7 @@
 local:
   '*':
+    - apt
+    - locale.configure
     - packages
     - python
     - postgresql
@@ -15,6 +17,8 @@ local:
 
 dev:
   '*':
+    - apt
+    - locale
     - git
     - packages
     - python
@@ -31,6 +35,8 @@ dev:
 
 prod:
   '*':
+    - apt
+    - locale
     - git
     - packages
     - python
