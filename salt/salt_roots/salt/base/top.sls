@@ -7,7 +7,6 @@ local:
     - postgresql
     - postgresql.postgis
     - redis
-    - mongodb
     - nginx
     - cron
     - django.settings
@@ -18,14 +17,13 @@ local:
 dev:
   '*':
     - apt
-    - locale
     - git
+    - locale.configure
     - packages
     - python
     - postgresql
     - postgresql.postgis
     - redis
-    - mongodb
     - nginx
     - cron
     - django.settings
@@ -36,14 +34,14 @@ dev:
 prod:
   '*':
     - apt
-    - locale
     - git
-    - packages
+    - ssl
+    - locale.configure
+    - bower
     - python
     - postgresql
     - postgresql.postgis
     - redis
-    - mongodb
     - nginx
     - cron
     - django.settings

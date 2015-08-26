@@ -3,3 +3,5 @@ settings:
   debug: False
   template_debug: False
   allowed_hosts:
+
+  environment: prod

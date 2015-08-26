@@ -7,7 +7,6 @@ local:
     - django
     - settings
     - superuser
-    - mongodb
     - cron
 
 dev:
@@ -20,7 +19,6 @@ dev:
     - django
     - settings
     - superuser
-    - mongodb
     - cron
 
 prod:
@@ -33,5 +31,4 @@ prod:
     - django
     - settings
     - superuser
-    - mongodb
     - cron

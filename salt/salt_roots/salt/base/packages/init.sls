@@ -11,6 +11,7 @@ essential-packages:
       - gettext
       - libjpeg-dev
       - zlib1g-dev
-      - python-pymongo
-      - gdal-bin
-      - libgeos-dev
+      - libssl-dev
+      - libffi-dev
+      - python-dev
+      - clang

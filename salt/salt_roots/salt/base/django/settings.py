@@ -1,38 +1,25 @@
-"""
-Django settings for project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
-"""
-
 import os
-from mongoengine import connect
 from django.utils.translation import ugettext_lazy as _
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '{{ pillar["settings"]["secret_key"] }}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = {{ pillar["settings"]["debug"] }}
+DEBUG = {{pillar["settings"]["debug"]}}
 
-TEMPLATE_DEBUG = {{ pillar["settings"]["template_debug"] }}
+TEMPLATE_DEBUG = {{pillar["settings"]["template_debug"]}}
 
-ALLOWED_HOSTS = [{{ pillar["settings"]["allowed_hosts"] }}]
+ENV = '{{pillar["settings"]["environment"]}}'
 
+ALLOWED_HOSTS = [{{pillar["settings"]["allowed_hosts"]}}]
 
 # Application definition
 
 INSTALLED_APPS = (
-    'grappelli',
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,13 +27,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'huey.djhuey',
-    'debug_toolbar',
-    'apps.core',
-    'apps.home',
+
+    'apps.core.cli',
+    'apps.web',
 )
 
 MIDDLEWARE_CLASSES = (
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -55,29 +41,45 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
 )
 
+# URLs configurations
+
 ROOT_URLCONF = 'system.urls'
+
+# Define wsgi application
 
 WSGI_APPLICATION = 'system.wsgi.application'
 
 # Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': "django.db.backends.postgresql_psycopg2",
-        'NAME': "{{ pillar['postgresql']['database'] }}",
-        'USER': "{{ pillar['postgresql']['user'] }}",
-        'PASSWORD': "{{ pillar['postgresql']['password'] }}",
-        'HOST': "localhost",
-        'POST': "5432"
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': '{{ pillar["postgresql"]["database"] }}',
+        'USER': '{{ pillar["postgresql"]["user"] }}',
+        'PASSWORD': '{{ pillar["postgresql"]["password"] }}',
+        'PORT': '{{ pillar["postgresql"]["port"] }}',
+        'HOST': '{{ pillar["postgresql"]["host"] }}',
     }
 }
 
-# MongoDB
+# Huey
 
-# connect('{{ pillar["mongodb"]["database"] }}', username='{{ pillar["mongodb"]["user"] }}', password='{{ pillar["mongodb"]["password"] }}')
+HUEY = {
+    'backend': 'huey.backends.redis_backend',
+    'name': 'huey',
+    'connection': {
+        'host': 'localhost',
+        'port': 6379
+    },
+    'always_eager': False,
+    'consumer_options': {
+        'workers': 4
+    },
+}
 
 # Templates
 
@@ -86,18 +88,20 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.static',
     'django.core.context_processors.request',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages'
 )
 
 TEMPLATE_DIRS = (
-    os.path.join(ROOT_PATH, "../templates"),
+    os.path.join(ROOT_PATH, 'templates'),
 )
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
+# https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGES = (
-    ("en", _("English")),
-    ("ru", _("Russian")),
+    ('en', _('LANGUAGE_LABEL_ENGLISH')),
+    ('ru', _('LANGUAGE_LABEL_RUSSIAN')),
 )
 
 LANGUAGE_CODE = 'en-us'
@@ -110,59 +114,42 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, "locale"),
+    os.path.join(BASE_DIR, 'locale'),
 )
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(ROOT_PATH, "../static")
+STATIC_ROOT = os.path.join(ROOT_PATH, 'static', 'static_root')
+STATICFILES_DIRS = (
+    os.path.join(ROOT_PATH, 'static', 'static_dirs'),
+)
 
-# Logging
+MEDIA_ROOT = os.path.join(ROOT_PATH, 'static', 'media')
+MEDIA_URL = '/media/'
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(ROOT_PATH, "../logs/debug.log"),
-            'formatter': 'verbose'
-        },
-    },
-    'loggers': {
-        'apps.core': {
-            'propagate': True,
-            'handlers': ['file'],
-            'level': 'DEBUG',
-        },
-        'apps.home': {
-            'propagate': True,
-            'handlers': ['file'],
-            'level': 'DEBUG',
-        },
-    }
+# Django rest framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+    'PAGINATE_BY': 10,
+    'PAGINATE_BY_PARAM': 'per_page',
+    'MAX_PAGINATE_BY': 100,
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
 }
 
-# Huey
+# Django Rest Swagger
 
-HUEY = {
-    'backend': 'huey.backends.redis_backend',
-    'name': 'huey',
-    'connection': {'host': 'localhost', 'port': 6379},
-    'always_eager': False,
-    'consumer_options': {'workers': 4},
+SWAGGER_SETTINGS = {
+    'is_authenticated': True,
+    'is_superuser': True,
 }

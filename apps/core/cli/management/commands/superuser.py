@@ -10,7 +10,10 @@ class Command(BaseCommand):
         try:
             User.objects.get(username='admin')
         except User.DoesNotExist:
-            user = User(username='admin')
+            user = User(
+                username='admin',
+                email='admin@pyback.com',
+            )
             user.set_password('password')
             user.is_superuser = True
             user.is_staff = True

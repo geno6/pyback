@@ -3,3 +3,5 @@ settings:
   debug: True
   template_debug: True
   allowed_hosts:
+
+  environment: local

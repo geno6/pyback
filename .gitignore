@@ -38,7 +38,7 @@ logs/*
 !/logs/.gitkeep
 
 # Settings file
-system/settings.py
+/settings.py
 
 # Virtual environment
 venv

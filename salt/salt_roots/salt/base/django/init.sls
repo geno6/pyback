@@ -5,7 +5,6 @@
 
   virtualenv:
     - managed
-    - no_site_packages: True
     - distribute: True
     - python: /usr/bin/python3
     - no_chown: True
@@ -23,7 +22,7 @@ install:
 
 migrate:
   cmd.run:
-    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && /var/www/./manage.py migrate --noinput'
+    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && ./manage.py migrate --noinput'
     - cwd: {{ pillar['django']['src_dir'] }}
     - shell: /bin/bash
     - require:
@@ -31,16 +30,15 @@ migrate:
 
 collectstatic:
   cmd.run:
-    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && /var/www/./manage.py collectstatic --noinput'
+    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && ./manage.py collectstatic --noinput'
     - cwd: {{ pillar['django']['src_dir'] }}
     - shell: /bin/bash
     - require:
       - virtualenv: {{ pillar['venv']['dir'] }}
 
-createsuperuser:
-  cmd.run:
-    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && /var/www/./manage.py superuser'
-    - cwd: {{ pillar['django']['src_dir'] }}
-    - shell: /bin/bash
-    - require:
-      - virtualenv: {{ pillar['venv']['dir'] }}
+superuser:
+  file:
+    - managed
+    - name: {{ pillar["django"]["src_dir"] }}/apps/core/cli/management/commands/superuser.py
+    - source: salt://django/superuser.py
+    - template: jinja

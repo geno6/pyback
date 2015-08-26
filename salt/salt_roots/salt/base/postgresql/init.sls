@@ -22,6 +22,15 @@ postgresql:
     - require:
       - pkg: postgresql
 
+postgresql.conf:
+  file.append:
+    - name: /etc/postgresql/9.3/main/postgresql.conf
+    - text: "listen_addresses = '*'"
+    - require:
+      - pkg: postgresql
+    - watch_in:
+      - service: postgresql
+
 postgresql-database-setup:
   postgres_user:
     - present
@@ -29,6 +38,7 @@ postgresql-database-setup:
     - password: {{ pillar['postgresql']['password'] }}
     - createdb: True
     - user: postgres
+    - superuser: True
     - require:
       - service: postgresql
 

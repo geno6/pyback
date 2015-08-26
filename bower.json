@@ -1,0 +1,8 @@
+{
+  "ignore": [
+    "static/static_dirs/vendor"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

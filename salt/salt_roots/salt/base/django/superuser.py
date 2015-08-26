@@ -10,7 +10,10 @@ class Command(BaseCommand):
         try:
             User.objects.get(username='{{ pillar["superuser"]["username"] }}')
         except User.DoesNotExist:
-            user = User(username='{{ pillar["superuser"]["username"] }}')
+            user = User(
+                username='{{ pillar["superuser"]["username"] }}',
+                email='{{ pillar["superuser"]["email"] }}',
+            )
             user.set_password('{{ pillar["superuser"]["password"] }}')
             user.is_superuser = True
             user.is_staff = True
