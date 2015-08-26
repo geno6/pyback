@@ -1,6 +1,7 @@
 createsuperuser:
-  file:
-    - managed
-    - name: {{ pillar["django"]["src_dir"] }}/apps/core/cli/management/commands/superuser.py
-    - source: salt://django/superuser.py
-    - template: jinja
+  cmd.run:
+    - name: 'source {{ pillar['venv']['dir'] }}/bin/activate && ./manage.py superuser'
+    - cwd: {{ pillar['django']['src_dir'] }}
+    - shell: /bin/bash
+    - require:
+      - virtualenv: {{ pillar['venv']['dir'] }}
